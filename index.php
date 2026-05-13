@@ -70,6 +70,7 @@
             <th>TITOLO</th>
             <th>ANNO</th>
             <th>ID_REGISTA</th>
+            <th>ELIMINA</th>
         </tr>
 
         <?php
@@ -84,6 +85,9 @@
                 echo "<td>". ($row['titolo']). "</td>";
                 echo "<td>". ($row['anno']). "</td>";
                 echo "<td>". ($row['id_regista']). "</td>";
+                echo "<td>";
+                echo "<a href='elimina.php?id_film=". urlencode($row['id_film']) ."' onclick=\"return confirm('Confermi eliminazione?');\">Elimina</a>";
+                echo "</td>";
                 echo "</tr>";
             }
         }
