@@ -59,17 +59,17 @@
 
         <hr>
 
+        <div style="display:flex; gap:40px; align-items:flex-start;">
+
+        <div>
         <h1>TABELLA FILM</h1>
 
         <table border="1">
-        <!-- th per mettere i campi della tabella  (table header)-->
         <tr>
-            <th>ID_FILM</th>   
+            <th>ID_FILM</th>
             <th>TITOLO</th>
             <th>ANNO</th>
             <th>ID_REGISTA</th>
-            
-        
         </tr>
 
         <?php
@@ -77,17 +77,47 @@
 
         $result = $conn->query($sql);
 
-        while($row = $result->fetch_assoc()){
-
-            echo "<tr>";
-
-            echo "<td>". $row['id_film']. "</td>";
-            echo "<td>". $row['titolo']. "</td>";
-            echo "<td>". $row['anno']. "</td>";
-            echo "<td>". $row['id_regista']. "</td>";
-
+        if ($result) {
+            while($row = $result->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>". ($row['id_film']). "</td>";
+                echo "<td>". ($row['titolo']). "</td>";
+                echo "<td>". ($row['anno']). "</td>";
+                echo "<td>". ($row['id_regista']). "</td>";
+                echo "</tr>";
+            }
         }
         ?>
         </table>
+        </div>
+
+        <div>
+        <h1>TABELLA REGISTI</h1>
+        <table border="1">
+        <tr>
+            <th>ID_REGISTA</th>
+            <th>NOME</th>
+            <th>COGNOME</th>
+            <th>NAZIONALIT&Agrave;</th>
+        </tr>
+        <?php
+        $sql2 = "SELECT * FROM Registi";
+        $result2 = $conn->query($sql2);
+
+        if ($result2) {
+            while($r = $result2->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>". ($r['id_regista']). "</td>";
+                echo "<td>". ($r['nome']). "</td>";
+                echo "<td>". ($r['cognome']). "</td>";
+                echo "<td>". ($r['nazionalit\xc3\xa0'] ?? $r['nazionalita'] ?? $r['nazionalità']). "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+        </table>
+        </div>
+
+        </div>
     </body>
 </html>
