@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mag 14, 2026 alle 17:02
+-- Creato il: Mag 20, 2026 alle 08:49
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -72,7 +72,8 @@ INSERT INTO `Registi` (`id_regista`, `nome`, `cognome`, `nazionalita`) VALUES
 (4, 'Sofia', 'Coppola', 'USA'),
 (5, 'Hayao', 'Miyazaki', 'Giappone'),
 (6, 'Stanley', 'Kubrick', 'USA'),
-(7, 'Wim', 'Wenders', 'Germania');
+(7, 'Wim', 'Wenders', 'Germania'),
+(8, 'Chan-wook', 'Park', 'Corea del sud');
 
 --
 -- Indici per le tabelle scaricate
